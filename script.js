@@ -12,16 +12,13 @@ const sliderImage = document.querySelector(".slider-img");
 let isBrightnesCheck = 0;
 let imgIndex = 1;
 
-// function
-function nextImg() {
+// automatic change
+const go_next = setInterval(function () {
   imgIndex++;
   sliderImage.src = `./images/img-${imgIndex}.jpg`;
   if (imgIndex === 4) {
     imgIndex = 0;
   }
-}
-const go_next = setInterval(function () {
-  nextImg();
 }, 3000);
 
 go_next;
