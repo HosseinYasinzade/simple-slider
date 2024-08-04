@@ -6,6 +6,7 @@ const backgroundChange = document.querySelector(".bg");
 const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 const sliderImage = document.querySelector(".slider-img");
+const dots = document.querySelectorAll(".dot");
 // flag var
 let isBrightnesCheck = 0;
 let imgIndex = 1;
@@ -48,7 +49,7 @@ prevBtn.addEventListener("click", function () {
   if (imgIndex === 0) {
     imgIndex = 4;
   }
+  imgIndex--;
   sliderImage.src = `./images/img-${imgIndex}.jpg`;
   document.querySelector(`.dot-${imgIndex}`).classList.toggle("dot-active");
-  imgIndex--;
 });
