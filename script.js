@@ -1,5 +1,4 @@
 "use strict";
-
 // variable
 const body = document.querySelector("body");
 const brightnesBtn = document.querySelector(".brightnes");
@@ -7,22 +6,24 @@ const backgroundChange = document.querySelector(".bg");
 const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 const sliderImage = document.querySelector(".slider-img");
-
 // flag var
 let isBrightnesCheck = 0;
 let imgIndex = 1;
-
-// automatic change
-const go_next = setInterval(function () {
-  imgIndex++;
-  sliderImage.src = `./images/img-${imgIndex}.jpg`;
+// function
+function moveImg() {
+  if (imgIndex !== 0) {
+    document.querySelector(`.dot-${imgIndex}`).classList.toggle("dot-active");
+  }
   if (imgIndex === 4) {
     imgIndex = 0;
   }
-}, 3000);
-
+  imgIndex++;
+  sliderImage.src = `./images/img-${imgIndex}.jpg`;
+  document.querySelector(`.dot-${imgIndex}`).classList.toggle("dot-active");
+}
+// automatic change
+const go_next = setInterval(moveImg, 3000);
 go_next;
-
 // brightnes codding
 brightnesBtn.addEventListener("click", function () {
   if (isBrightnesCheck === 0) {
@@ -37,22 +38,17 @@ brightnesBtn.addEventListener("click", function () {
     isBrightnesCheck = 0;
   }
 });
-
 // slider next btn
-nextBtn.addEventListener("click", function () {
-  imgIndex++;
-  sliderImage.src = `./images/img-${imgIndex}.jpg`;
-  if (imgIndex === 4) {
-    imgIndex = 0;
-  }
-});
-
+nextBtn.addEventListener("click", moveImg);
 //  slider prev btn
-
 prevBtn.addEventListener("click", function () {
-  imgIndex--;
+  if (imgIndex !== 0) {
+    document.querySelector(`.dot-${imgIndex}`).classList.toggle("dot-active");
+  }
   if (imgIndex === 0) {
     imgIndex = 4;
   }
   sliderImage.src = `./images/img-${imgIndex}.jpg`;
+  document.querySelector(`.dot-${imgIndex}`).classList.toggle("dot-active");
+  imgIndex--;
 });

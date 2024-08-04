@@ -91,3 +91,22 @@ body {
 .prev:hover {
   background-color: rgba(0, 0, 0, 0.719);
 }
+.dot_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  position: absolute;
+  top: 55%;
+  left: 47%;
+}
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #dddddd;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.dot-active {
+  background-color: #bdbaba;
+}
