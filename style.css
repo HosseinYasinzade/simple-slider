@@ -90,5 +90,4 @@ body {
 .next:hover,
 .prev:hover {
   background-color: rgba(0, 0, 0, 0.719);
-  color: #303030;
 }
