@@ -53,3 +53,12 @@ prevBtn.addEventListener("click", function () {
   sliderImage.src = `./images/img-${imgIndex}.jpg`;
   document.querySelector(`.dot-${imgIndex}`).classList.toggle("dot-active");
 });
+// controller with dots
+for (let i = 0; i < dots.length; i++) {
+  dots[i].addEventListener("click", function () {
+    document.querySelector(`.dot-${imgIndex}`).classList.toggle("dot-active");
+    imgIndex = i + 1;
+    sliderImage.src = `./images/img-${i + 1}.jpg`;
+    document.querySelector(`.dot-${imgIndex}`).classList.toggle("dot-active");
+  });
+}
