@@ -46,10 +46,10 @@ prevBtn.addEventListener("click", function () {
   if (imgIndex !== 0) {
     document.querySelector(`.dot-${imgIndex}`).classList.toggle("dot-active");
   }
+  imgIndex--;
   if (imgIndex === 0) {
     imgIndex = 4;
   }
-  imgIndex--;
   sliderImage.src = `./images/img-${imgIndex}.jpg`;
   document.querySelector(`.dot-${imgIndex}`).classList.toggle("dot-active");
 });
